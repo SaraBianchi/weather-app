@@ -39,14 +39,14 @@ const cardWeather = document.getElementById('card-weather');
      if(e.keyCode == 13) {
          input.value = filteredOptions[0] || "";
 
-         showHide(cardCity);
-         showHide(cardWeather);
-
-         // chiamata Fetch al sito internet del meteo
-         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${input.value}&units=metric&appid=beb6d316eccbcc5074a01ed2ff2f1db5`)
-            .then(response => response.json())
-            .then(data => generateCard(data));
-
+         if(input.value !== "") {
+             showHide(cardCity);
+             showHide(cardWeather);
+             // chiamata Fetch al sito internet del meteo
+             fetch(`https://api.openweathermap.org/data/2.5/weather?q=${input.value}&units=metric&appid=beb6d316eccbcc5074a01ed2ff2f1db5`)
+                 .then(response => response.json())
+                 .then(data => generateCard(data));
+         }
      }
 });
 
@@ -62,7 +62,6 @@ function emitValue(optionValue) {
 function generateCard(data) {
     const html = `<div class="box-right--top">
                         <h2>${data.name}</h2>
-                        <span class="temp">${data.main.temp} °C</span>
                     </div>
                     <div class="box-right--second-line">
                         <img src='src/icons/${data.weather[0].icon}.png' alt='weather'> 

@@ -1,5 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
 @import url('https://fonts.googleapis.com/css?family=Sawarabi+Mincho');
+
+@font-face {
+    font-family: "SF Font";
+    src: url("../src/fonts/SF-UI-Display-Regular.ttf") format("truetype");
+}
 
 *{
     margin: 0;
@@ -19,7 +23,7 @@ div, nav, footer {
     background-size: cover;
     display: flex;
     flex-direction: column;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'SF Font', sans-serif;
     min-height: 100vh;
 }
 
@@ -132,32 +136,50 @@ h1 {
 }
 
 .box-right--search {
-    max-width: 350px;
+    max-width: 280px;
     margin: 20px auto;
 }
 
 
 .box-right--search input {
-    background: rgba(255, 255, 255, .4);
-    border: 2px solid transparent;
-    border-radius: 50px;
-    box-shadow: 0 0 25px 2px rgba(0,0,0,0.1);
+    background: rgba(255, 255, 255, .24);
+    background-image: url("../src/image/search.svg");
+    background-repeat: no-repeat;
+    background-position-x: 9px;
+    background-position-y: 50%;
+    background-size: 20px;
+    border-radius: 8px;
+    border: 0;
     box-sizing: border-box;
-    color: white;
+    opacity: 0.7;
     display: block;
-    font-family: 'Open Sans', sans-serif;
-    letter-spacing: 0.5px;
-    padding: 11px 18px;
+    color: white;
+    height: 40px;
+    font-size: 16px;
+    font-family: 'SF Font', sans-serif;
+    padding: 11px 18px 11px 35px;
     width: 100%;
+    position: relative;
 }
 
 .box-right--search input:focus {
-    border: 2px solid white;
     outline: none;
+    color: #000;
+    opacity: 1;
+    background: white;
+    background-image: url("../src/image/search-black.svg");
+    background-repeat: no-repeat;
+    background-position-x: 9px;
+    background-position-y: 50%;
+    background-size: 20px;
 }
 
 .box-right--search input::placeholder {
     color: white;
+}
+
+.box-right--search input:focus::placeholder {
+    color: #000;
 }
 
 #select {
@@ -167,31 +189,31 @@ h1 {
 }
 
 #select li {
-    color: #666;
+    color: #9B9B9B;
     list-style: none;
     cursor: pointer;
     font-weight: bold;
     padding: 5px;
 }
 
-#select li:first-child {
-    background: #eee;
-}
 
 #card-city, #card-weather {
     background: white;
     border-radius: 8px;
-    box-shadow: 0 0 25px 2px rgba(0,0,0,0.1);
-    min-height: 350px;
-    min-width: 300px;
-    max-width: 350px;
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.24);
+    height: 280px;
+    width: 280px;
     margin: 20px auto;
 }
 
 #card-city {
     display: block;
     overflow-y: scroll;
-    max-height: 350px;
+    height: 280px;
+}
+
+#card-city::-webkit-scrollbar {
+    width: 0 !important;
 }
 
 #card-weather {
@@ -199,12 +221,13 @@ h1 {
     display: none;
     flex-direction: column;
     position: relative;
-    padding: 30px;
+    padding: 30px 25px 20px;
 }
 
 
 .box-right--top,
 .box-right--second-line {
+    display: flex;
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -232,12 +255,13 @@ h1 {
 }
 
 .box-right--second-line {
-    padding-top: 10px;
+    padding-top: 3px;
     align-items: center;
 }
 
 .box-right--second-line img {
-    max-width: 35px;
+    max-width: 28px;
+    height: 28px;
     margin-right: 10px;
 }
 
@@ -245,6 +269,7 @@ h1 {
     width: 50%;
     text-transform: uppercase;
     margin: 10px 0;
+    font-size: 12px;
     color: rgba(255,255,255,0.7);
 }
 
@@ -252,6 +277,8 @@ h1 {
     display: block;
     text-transform: initial;
     color: white;
+    font-size: 16px;
+    margin-top: 4px;
 }
 
 .delete {
@@ -263,7 +290,7 @@ h1 {
     position: absolute;
     font-weight: bold;
     bottom: -20px;
-    left: -20px;
+    right: -20px;
 }
 
 /* FOOTER */
